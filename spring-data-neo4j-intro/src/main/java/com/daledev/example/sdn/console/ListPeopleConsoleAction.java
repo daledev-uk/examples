@@ -8,28 +8,26 @@ import java.util.Scanner;
 
 /**
  * @author dale.ellis
- * @since 27/09/2018
+ * @since 28/09/2018
  */
 @Service
-public class CreatePersonConsoleAction implements ConsoleAction {
+public class ListPeopleConsoleAction implements ConsoleAction {
     private PersonService personService;
 
-    public CreatePersonConsoleAction(PersonService personService) {
+    public ListPeopleConsoleAction(PersonService personService) {
         this.personService = personService;
     }
 
     @Override
     public String getActionText() {
-        return "Create Person";
+        return "List all people";
     }
 
     @Override
     public void handleAction(Scanner scanner) {
-        System.out.print("Enter Persons Name : ");
-        String personName = scanner.next();
-        Person person = personService.createPerson(personName);
-        System.out.printf("\tCreate Person '%s', ID : %s%n", person.getName(), person.getId());
+        for (Person person : personService.getAllPeople()) {
+            System.out.printf("\t[%s] - %s%n", person.getId(), person.getName());
+        }
         System.out.println("\n");
     }
-
 }

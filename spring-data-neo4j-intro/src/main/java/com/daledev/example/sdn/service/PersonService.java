@@ -30,4 +30,12 @@ public class PersonService {
         return mark;
     }
 
+    /**
+     *
+     * @return
+     */
+    public Iterable<Person> getAllPeople() {
+        return personRepository.findAll();
+    }
+
 }

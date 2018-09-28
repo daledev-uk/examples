@@ -18,16 +18,22 @@ public class MovieService {
     private MovieRepository movieRepository;
 
     /**
-     *
      * @param title
      * @param released
      * @return
      */
-    public Movie persistMovie(String title, int released) {
+    public Movie createMovie(String title, int released) {
         Movie movie = new Movie();
         movie.setTitle(title);
         movie.setReleased(released);
         movieRepository.save(movie);
         return movie;
+    }
+
+    /**
+     * @return
+     */
+    public Iterable<Movie> getAllMovies() {
+        return movieRepository.findAll();
     }
 }

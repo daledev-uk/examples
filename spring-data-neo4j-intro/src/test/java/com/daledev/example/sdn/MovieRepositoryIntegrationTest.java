@@ -5,7 +5,8 @@ import com.daledev.example.sdn.domain.Movie;
 import com.daledev.example.sdn.domain.Person;
 import com.daledev.example.sdn.domain.Role;
 import com.daledev.example.sdn.repository.MovieRepository;
-import com.daledev.example.sdn.repository.PersonRepository;
+import com.daledev.example.sdn.service.MovieService;
+import com.daledev.example.sdn.service.PersonService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,33 +33,20 @@ import static org.junit.Assert.*;
 public class MovieRepositoryIntegrationTest {
 
     @Autowired
-    private MovieRepository movieRepository;
+    private PersonService personService;
+    @Autowired
+    private MovieService movieService;
 
     @Autowired
-    private PersonRepository personRepository;
+    private MovieRepository movieRepository;
 
     @Before
     public void initializeDatabase() {
         System.out.println("seeding embedded database");
 
-        Movie italianJob = persistMovie("The Italian Job", 1999);
-        Person markWahlberg = persistPerson("Mark Wahlberg");
+        Movie italianJob = movieService.createMovie("The Italian Job", 1999);
+        Person markWahlberg = personService.createPerson("Mark Wahlberg");
         persistRole(italianJob, markWahlberg, "Charlie Croker");
-    }
-
-    private Person persistPerson(String personName) {
-        Person mark = new Person();
-        mark.setName(personName);
-        personRepository.save(mark);
-        return mark;
-    }
-
-    private Movie persistMovie(String title, int released) {
-        Movie italianJob = new Movie();
-        italianJob.setTitle(title);
-        italianJob.setReleased(released);
-        movieRepository.save(italianJob);
-        return italianJob;
     }
 
     private Role persistRole(Movie movie, Person person, String... roleNames) {

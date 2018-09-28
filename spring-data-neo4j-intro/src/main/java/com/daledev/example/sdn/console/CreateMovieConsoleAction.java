@@ -29,7 +29,8 @@ public class CreateMovieConsoleAction implements ConsoleAction {
         String movieName = scanner.next();
         System.out.println("Enter Movie Release Date : ");
         int releaseDate = scanner.nextInt();
-        Movie movie = movieService.persistMovie(movieName, releaseDate);
-        System.out.printf("Create Movie '%s', ID : %s%n", movie.getTitle(), movie.getId());
+        Movie movie = movieService.createMovie(movieName, releaseDate);
+        System.out.printf("\tCreate Movie '%s', ID : %s%n", movie.getTitle(), movie.getId());
+        System.out.println("\n");
     }
 }
