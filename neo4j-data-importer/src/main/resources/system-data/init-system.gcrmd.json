@@ -1,0 +1,9 @@
+[
+  {
+    "changeSetId": 1,
+    "type": "RUN_FILES",
+    "data": [
+      "entity-definitions.json"
+    ]
+  }
+]

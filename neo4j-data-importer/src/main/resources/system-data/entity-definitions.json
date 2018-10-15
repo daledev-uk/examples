@@ -1,0 +1,31 @@
+[
+  {
+    "changeSetId": 1,
+    "type": "INSERT",
+    "data": {
+      "label": "EntityDefinition",
+      "attributes": {
+        "name": "Person",
+        "description": "Entity representing a person",
+        "systemEntity": true,
+        "createTime": "${now}",
+        "lastUpdateTime": "${now}"
+      }
+    }
+  },
+  {
+    "changeSetId": 2,
+    "type": "INSERT",
+    "data": {
+      "label": "EntityRelationshipDefinition",
+      "attributes": {
+        "name" : "DATA_FIELD",
+        "friendlyName" : "Data Field",
+        "description" : "Field representing an attribute on an entity",
+        "systemRelationship" : true,
+        "createTime": "${now}",
+        "lastUpdateTime": "${now}"
+      }
+    }
+  }
+]
