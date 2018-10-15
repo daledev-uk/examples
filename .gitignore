@@ -1,6 +1,6 @@
 /target/
-*/target
-*/target
+neo4j-data-importer/target
+spring-data-neo4j-intro/target
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
@@ -24,4 +24,4 @@
 /nbbuild/
 /dist/
 /nbdist/
-/.nb-gradle/
+/.nb-gradle/target\
